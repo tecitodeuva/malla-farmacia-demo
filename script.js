@@ -1,5 +1,3 @@
-// Carga y genera la malla interactiva
-
 let materias = [];
 const contenedor = document.getElementById('malla-container');
 
@@ -22,7 +20,6 @@ async function cargarMaterias() {
 }
 
 function puedeCursar(materia) {
-  // Para cursar (TP), todas las correlativasTP deben tener TP aprobado
   return materia.correlativasTP.every(id => {
     const mat = materias.find(m => m.id === id);
     return mat && mat.tpAprobado;
@@ -30,7 +27,6 @@ function puedeCursar(materia) {
 }
 
 function puedeAprobarFinal(materia) {
-  // Para aprobar final, todas las correlativasFinal deben tener final aprobado
   return materia.correlativasFinal.every(id => {
     const mat = materias.find(m => m.id === id);
     return mat && mat.finalAprobado;
@@ -39,35 +35,37 @@ function puedeAprobarFinal(materia) {
 
 function actualizarMalla() {
   contenedor.innerHTML = '';
+  const cuatrimestres = [...new Set(materias.map(m => m.cuatri))].sort((a,b)=>a-b);
 
-  materias.forEach(materia => {
-    // Estados
-    materia.tpAprobado = materia.tpAprobado || false;
-    materia.finalAprobado = materia.finalAprobado || false;
+  cuatrimestres.forEach(cuatri => {
+    const col = document.createElement('div');
+    col.className = 'cuatrimestre';
+    col.innerHTML = `<h2>${cuatri}° Cuatrimestre</h2>`;
 
-    const div = document.createElement('div');
-    div.classList.add('materia');
+    materias.filter(m => m.cuatri === cuatri).forEach(materia => {
+      materia.tpAprobado = materia.tpAprobado || false;
+      materia.finalAprobado = materia.finalAprobado || false;
 
-    // Determinar estado de la materia
-    if (materia.finalAprobado) {
-      div.classList.add('aprobado-final');
-    } else if (materia.tpAprobado) {
-      div.classList.add('aprobado-tp');
-    } else if (puedeCursar(materia)) {
-      div.classList.add('habilitada');
-    } else {
-      div.classList.add('bloqueada');
-    }
+      const div = document.createElement('div');
+      div.classList.add('materia');
 
-    div.innerHTML = `
-      <h3>${materia.nombre}</h3>
-      <div class="checkbox-group">
-        <label><input type="checkbox" data-id="${materia.id}" data-tipo="tp" ${materia.tpAprobado ? 'checked' : ''} ${!puedeCursar(materia) ? 'disabled' : ''}/> TP aprobado</label>
-        <label><input type="checkbox" data-id="${materia.id}" data-tipo="final" ${materia.finalAprobado ? 'checked' : ''} ${!puedeAprobarFinal(materia) ? 'disabled' : ''}/> Final aprobado</label>
-      </div>
-    `;
+      if (materia.finalAprobado) div.classList.add('aprobado-final');
+      else if (materia.tpAprobado) div.classList.add('aprobado-tp');
+      else if (puedeCursar(materia)) div.classList.add('habilitada');
+      else div.classList.add('bloqueada');
 
-    contenedor.appendChild(div);
+      div.innerHTML = `
+        <div>${materia.nombre}</div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" data-id="${materia.id}" data-tipo="tp" ${materia.tpAprobado ? 'checked' : ''} ${!puedeCursar(materia) ? 'disabled' : ''}/> TP</label>
+          <label><input type="checkbox" data-id="${materia.id}" data-tipo="final" ${materia.finalAprobado ? 'checked' : ''} ${!puedeAprobarFinal(materia) ? 'disabled' : ''}/> Final</label>
+        </div>
+      `;
+
+      col.appendChild(div);
+    });
+
+    contenedor.appendChild(col);
   });
 
   agregarEventos();
@@ -77,25 +75,19 @@ function actualizarMalla() {
 function agregarEventos() {
   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach(chk => {
-    chk.addEventListener('change', (e) => {
+    chk.addEventListener('change', e => {
       const id = e.target.dataset.id;
       const tipo = e.target.dataset.tipo;
-
       const materia = materias.find(m => m.id === id);
+
       if (!materia) return;
 
       if (tipo === 'tp') {
         materia.tpAprobado = e.target.checked;
-        // Si destildo TP, también destildo final (porque no puede estar aprobado sin TP)
-        if (!materia.tpAprobado) {
-          materia.finalAprobado = false;
-        }
+        if (!materia.tpAprobado) materia.finalAprobado = false;
       } else if (tipo === 'final') {
         materia.finalAprobado = e.target.checked;
-        // Si tildo final, aseguro que TP esté tildado
-        if (materia.finalAprobado) {
-          materia.tpAprobado = true;
-        }
+        if (materia.finalAprobado) materia.tpAprobado = true;
       }
 
       actualizarMalla();
