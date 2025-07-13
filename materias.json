@@ -7,21 +7,21 @@
     "correlativasFinal": []
   },
   {
-    "id": "bio",
-    "nombre": "Biología e introducción a la biología celular (CBC)",
+    "id": "bio1",
+    "nombre": "Biología e Introducción a la Biología Celular (CBC)",
     "cuatri": 1,
     "correlativasTP": [],
     "correlativasFinal": []
   },
   {
-    "id": "fis",
-    "nombre": "Física e introducción a la Biofísica (CBC)",
+    "id": "fis1",
+    "nombre": "Física e Introducción a la Biofísica (CBC)",
     "cuatri": 1,
     "correlativasTP": [],
     "correlativasFinal": []
   },
   {
-    "id": "mat",
+    "id": "mat1",
     "nombre": "Matemática (CBC)",
     "cuatri": 2,
     "correlativasTP": [],
@@ -45,21 +45,21 @@
     "id": "quim_gen_inorg",
     "nombre": "Química General e Inorgánica",
     "cuatri": 3,
-    "correlativasTP": ["quim1","bio","fis"],
+    "correlativasTP": ["quim1", "bio1", "fis1"],
     "correlativasFinal": ["quim1"]
   },
   {
     "id": "mat2",
     "nombre": "Matemática",
     "cuatri": 3,
-    "correlativasTP": ["quim1","bio","fis"],
+    "correlativasTP": ["quim1", "bio1", "fis1"],
     "correlativasFinal": ["quim1"]
   },
   {
-    "id": "anat",
+    "id": "anat_hist",
     "nombre": "Anatomía e Histología",
     "cuatri": 3,
-    "correlativasTP": ["quim1","bio","fis"],
+    "correlativasTP": ["quim1", "bio1", "fis1"],
     "correlativasFinal": ["quim1"]
   },
   {
@@ -73,35 +73,196 @@
     "id": "bio_cel_mol",
     "nombre": "Biología Celular y Molecular",
     "cuatri": 4,
-    "correlativasTP": ["anat"],
+    "correlativasTP": ["anat_hist"],
     "correlativasFinal": []
   },
   {
-    "id": "quim_org_1",
+    "id": "quim_org1",
     "nombre": "Química Orgánica I",
     "cuatri": 4,
     "correlativasTP": ["quim_gen_inorg"],
-    "correlativasFinal": ["fis"]
+    "correlativasFinal": ["quim_gen_inorg"]
   },
   {
-    "id": "quim_org_2",
+    "id": "quim_org2",
     "nombre": "Química Orgánica II",
     "cuatri": 5,
-    "correlativasTP": ["quim_org_1","fis2"],
-    "correlativasFinal": ["quim_org_1"]
+    "correlativasTP": ["fis2", "quim_org1"],
+    "correlativasFinal": ["quim_org1"]
   },
   {
     "id": "fisio",
     "nombre": "Fisiología",
     "cuatri": 5,
-    "correlativasTP": ["anat","bio_cel_mol"],
+    "correlativasTP": ["bio_cel_mol"],
     "correlativasFinal": ["bio_cel_mol"]
   },
   {
     "id": "quim_ana",
-    "nombre": "Química analítica",
+    "nombre": "Química Analítica",
     "cuatri": 5,
-    "correlativasTP": ["quim_gen_inorg","mat2"],
+    "correlativasTP": ["mat2"],
     "correlativasFinal": ["mat2"]
+  },
+  {
+    "id": "fisicoq",
+    "nombre": "Fisicoquímica",
+    "cuatri": 6,
+    "correlativasTP": ["fis2", "fis2"],
+    "correlativasFinal": ["fis2"]
+  },
+  {
+    "id": "quim_ana_inst",
+    "nombre": "Química Analítica Instrumental",
+    "cuatri": 6,
+    "correlativasTP": ["quim_ana"],
+    "correlativasFinal": ["quim_ana"]
+  },
+  {
+    "id": "quim_biol",
+    "nombre": "Química Biológica",
+    "cuatri": 6,
+    "correlativasTP": ["quim_org2"],
+    "correlativasFinal": ["quim_org2"]
+  },
+  {
+    "id": "fisiopato",
+    "nombre": "Fisiopatología",
+    "cuatri": 7,
+    "correlativasTP": ["fisio"],
+    "correlativasFinal": ["fisio"]
+  },
+  {
+    "id": "microbio",
+    "nombre": "Microbiología",
+    "cuatri": 7,
+    "correlativasTP": ["quim_biol"],
+    "correlativasFinal": []
+  },
+  {
+    "id": "farmacobot",
+    "nombre": "Farmacobotánica",
+    "cuatri": 7,
+    "correlativasTP": [],
+    "correlativasFinal": ["bio_cel_mol"]
+  },
+  {
+    "id": "inmuno",
+    "nombre": "Inmunología",
+    "cuatri": 7,
+    "correlativasTP": ["fisio", "quim_biol"],
+    "correlativasFinal": ["fisio"]
+  },
+  {
+    "id": "farma1",
+    "nombre": "Farmacología I",
+    "cuatri": 8,
+    "correlativasTP": ["quim_biol", "fisiopato"],
+    "correlativasFinal": ["quim_biol"]
+  },
+  {
+    "id": "farma2",
+    "nombre": "Farmacología II",
+    "cuatri": 9,
+    "correlativasTP": ["farma1"],
+    "correlativasFinal": ["farma1"]
+  },
+  {
+    "id": "tox",
+    "nombre": "Toxicología",
+    "cuatri": 9,
+    "correlativasTP": ["quim_ana_inst", "farma1"],
+    "correlativasFinal": ["quim_ana_inst", "farma1"]
+  },
+  {
+    "id": "tec_far1",
+    "nombre": "Tecnología Farmacéutica I",
+    "cuatri": 9,
+    "correlativasTP": ["fisicoq", "farmacognosia"],
+    "correlativasFinal": ["farmacognosia"]
+  },
+  {
+    "id": "tec_far2",
+    "nombre": "Tecnología Farmacéutica II",
+    "cuatri": 10,
+    "correlativasTP": ["tec_far1"],
+    "correlativasFinal": ["tec_far1"]
+  },
+  {
+    "id": "calidad",
+    "nombre": "Calidad de Medicamentos",
+    "cuatri": 10,
+    "correlativasTP": ["quim_ana_inst", "tec_far1"],
+    "correlativasFinal": ["tec_far1"]
+  },
+  {
+    "id": "bromato",
+    "nombre": "Bromatología",
+    "cuatri": 10,
+    "correlativasTP": ["microbio", "nutricion"],
+    "correlativasFinal": ["microbio"]
+  },
+  {
+    "id": "quim_medicinal",
+    "nombre": "Química Medicinal",
+    "cuatri": 10,
+    "correlativasTP": ["farmacognosia", "farma2"],
+    "correlativasFinal": ["farmacognosia", "farma2"]
+  },
+  {
+    "id": "nutricion",
+    "nombre": "Nutrición",
+    "cuatri": 8,
+    "correlativasTP": ["fisiopato"],
+    "correlativasFinal": ["fisiopato"]
+  },
+  {
+    "id": "farmacognosia",
+    "nombre": "Farmacognosia",
+    "cuatri": 8,
+    "correlativasTP": ["quim_org2", "farmacobot"],
+    "correlativasFinal": ["quim_org2", "farmacobot"]
+  },
+  {
+    "id": "salud_pub",
+    "nombre": "Salud Pública e Higiene Ambiental",
+    "cuatri": 8,
+    "correlativasTP": ["quim_ana", "microbio"],
+    "correlativasFinal": ["quim_ana"]
+  },
+  {
+    "id": "farma_clinica",
+    "nombre": "Farmacología Clínica",
+    "cuatri": 9,
+    "correlativasTP": ["fisiopato", "farma1"],
+    "correlativasFinal": ["fisiopato", "farma1"]
+  },
+  {
+    "id": "farma_asistencial",
+    "nombre": "Farmacología Clínica y Asistencial",
+    "cuatri": 9,
+    "correlativasTP": ["fisiopato", "farma1"],
+    "correlativasFinal": ["fisiopato", "farma1"]
+  },
+  {
+    "id": "bioestad",
+    "nombre": "Bioestadística",
+    "cuatri": 6,
+    "correlativasTP": ["mat2"],
+    "correlativasFinal": ["mat2"]
+  },
+  {
+    "id": "ingles",
+    "nombre": "Inglés",
+    "cuatri": 6,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "legislacion",
+    "nombre": "Legislación Farmacéutica y DD.HH.",
+    "cuatri": 7,
+    "correlativasTP": ["fisio"],
+    "correlativasFinal": []
   }
 ]
