@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9f9f9;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#malla-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.materia {
+  background: #ccc;
+  border-radius: 8px;
+  padding: 10px 15px;
+  width: 210px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+  user-select: none;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.materia.habilitada {
+  background: #ffe27f;
+  cursor: pointer;
+}
+
+.materia.aprobado-tp {
+  background: #9ad4e4;
+}
+
+.materia.aprobado-final {
+  background: #82c67c;
+  color: #fff;
+}
+
+.materia.bloqueada {
+  background: #ddd;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.materia h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1em;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkbox-group label {
+  font-size: 0.85em;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 6px;
+}
+
+.tooltip {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #333;
+  color: white;
+  font-size: 0.75em;
+  padding: 3px 6px;
+  border-radius: 4px;
+  display: none;
+}
+
+.materia:hover .tooltip {
+  display: block;
+}
