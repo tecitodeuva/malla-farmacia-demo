@@ -66,7 +66,7 @@
     "id": "fis2",
     "nombre": "Física",
     "cuatri": 4,
-    "correlativasTP": ["quim_gen_inorg"],
+    "correlativasTP": ["mat2"],
     "correlativasFinal": []
   },
   {
@@ -82,5 +82,26 @@
     "cuatri": 4,
     "correlativasTP": ["quim_gen_inorg"],
     "correlativasFinal": ["fis"]
+  },
+  {
+    "id": "quim_org_2",
+    "nombre": "Química Orgánica II",
+    "cuatri": 5,
+    "correlativasTP": ["quim_org_1","fis2"],
+    "correlativasFinal": ["quim_org_1"]
+  },
+  {
+    "id": "fisio",
+    "nombre": "Fisiología",
+    "cuatri": 5,
+    "correlativasTP": ["anat","bio_cel_mol",],
+    "correlativasFinal": ["bio_cel_mol"]
+  },
+  {
+    "id": "quim_ana",
+    "nombre": "Química analítica",
+    "cuatri": 5,
+    "correlativasTP": ["quim_gen_inorg","mat2"],
+    "correlativasFinal": ["mat2"]
   }
 ]
