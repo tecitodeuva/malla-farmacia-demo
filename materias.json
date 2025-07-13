@@ -1,0 +1,87 @@
+[
+  {
+    "id": "quim1",
+    "nombre": "Química (CBC)",
+    "cuatri": 1,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "bio",
+    "nombre": "Biología e introducción a la biología celular (CBC)",
+    "cuatri": 1,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "fis",
+    "nombre": "Física e introducción a la Biofísica (CBC)",
+    "cuatri": 1,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "mat",
+    "nombre": "Matemática (CBC)",
+    "cuatri": 2,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "icse",
+    "nombre": "ICSE (CBC)",
+    "cuatri": 2,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "ipc",
+    "nombre": "IPC (CBC)",
+    "cuatri": 2,
+    "correlativasTP": [],
+    "correlativasFinal": []
+  },
+  {
+    "id": "quim_gen_inorg",
+    "nombre": "Química General e Inorgánica",
+    "cuatri": 3,
+    "correlativasTP": ["quim1","bio","fis"],
+    "correlativasFinal": ["quim1"]
+  },
+  {
+    "id": "mat2",
+    "nombre": "Matemática",
+    "cuatri": 3,
+    "correlativasTP": ["quim1","bio","fis"],
+    "correlativasFinal": ["quim1"]
+  },
+  {
+    "id": "anat",
+    "nombre": "Anatomía e Histología",
+    "cuatri": 3,
+    "correlativasTP": ["quim1","bio","fis"],
+    "correlativasFinal": ["quim1"]
+  },
+  {
+    "id": "fis2",
+    "nombre": "Física",
+    "cuatri": 4,
+    "correlativasTP": ["quim_gen_inorg"],
+    "correlativasFinal": []
+  },
+  {
+    "id": "bio_cel_mol",
+    "nombre": "Biología Celular y Molecular",
+    "cuatri": 4,
+    "correlativasTP": ["anat"],
+    "correlativasFinal": []
+  },
+  {
+    "id": "quim_org_1",
+    "nombre": "Química Orgánica I",
+    "cuatri": 4,
+    "correlativasTP": ["quim_gen_inorg"],
+    "correlativasFinal": ["fis"]
+  }
+  // Agregá el resto siguiendo este formato...
+]
