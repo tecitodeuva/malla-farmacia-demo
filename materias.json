@@ -94,7 +94,7 @@
     "id": "fisio",
     "nombre": "Fisiología",
     "cuatri": 5,
-    "correlativasTP": ["anat","bio_cel_mol",],
+    "correlativasTP": ["anat","bio_cel_mol"],
     "correlativasFinal": ["bio_cel_mol"]
   },
   {
